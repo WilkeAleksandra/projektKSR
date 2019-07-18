@@ -6,6 +6,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link type="text/css" href="/css/pepper-grinder/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+    <link type="text/css" href="/css/jquery.timepicker.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,5 +40,26 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datepicker').datepicker({
+                inline: true,
+                dateFormat: "dd-mm-yy"
+            });
+        });
+
+        $(document).ready(function () {
+            $('#time').timepicker({
+                timeFormat: 'HH:mm',
+                interval: 15,
+
+                scrollbar: true
+            });
+        });
+    </script>
+
+
 </body>
 </html>

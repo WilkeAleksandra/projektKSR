@@ -1,45 +1,52 @@
-﻿@{
-    ViewBag.Title = "Wyszukaj";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Super świetnie prezentująca się strona do wyszukiwania przejazdów :)</p>
-<div>
-    <form id="form" method="post" enctype="multipart/form-data">
-       <fieldset id="fieldset">
-            <legend id="legend">FORMULARZ WYSZUKIWANIA POŁĄCZEŃ</legend>
-            <table id="tab">
-                <tr>
-                    <td class="tekst">Wybierz stacje początkową</td>
-                    <td>
-                        <select name="stacja_poczatkowa">
-                            <option selected>Warszawa</option>
-                            <option>Gdańsk</option>
-                            <option>Kraków</option>
-                            <option>Wrocław</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="tekst">Wybierz stacje końcową</td>
-                    <td>
-                        <select name="stacja_koncowa">
-                            <option selected>Warszawa</option>
-                            <option>Gdańsk</option>
-                            <option>Kraków</option>
-                            <option>Wrocław</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label><input type="radio" name="forma" value="odjazd">Odjazd</label>
-                        <label><input type="radio" name="forma" value="przyjazd">Przyjazd</label>
-                    </td>
-                </tr>  
-            </table>
-        </fieldset>
-        <div id="szukaj"><input type="submit" value="SZUKAJ POŁĄCZENIA"></div>
-    </form>
-</div>
+﻿
+    <p>Super świetnie prezentująca się strona do wyszukiwania przejazdów :)</p>
+    <div>
+        <form id="form" method="post" enctype="multipart/form-data">
+            <fieldset id="fieldset">
+                <legend id="legend">FORMULARZ WYSZUKIWANIA POŁĄCZEŃ</legend>
+                <table id="tab">
+                    <tr>
+                        <td class="tekst">Wybierz stacje początkową</td>
+                        <td>
+                            <select name="stacja_poczatkowa">
+                                <option selected>Warszawa</option>
+                                <option>Gdańsk</option>
+                                <option>Kraków</option>
+                                <option>Wrocław</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tekst">Wybierz stacje końcową</td>
+                        <td>
+                            <select name="stacja_koncowa">
+                                <option selected>Warszawa</option>
+                                <option>Gdańsk</option>
+                                <option>Kraków</option>
+                                <option>Wrocław</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Data: </td>
+                        <td>
+                            <input type="text" id="datepicker"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Godzina: </td>
+                        <td>
+                            <input type="text" id="time" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><input type="radio" name="forma" value="odjazd">Odjazd</label>
+                            <label><input type="radio" name="forma" value="przyjazd">Przyjazd</label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <div id="szukaj"><input type="submit" value="SZUKAJ POŁĄCZENIA"></div>
+        </form>
+    </div>
