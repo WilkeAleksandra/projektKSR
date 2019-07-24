@@ -2,10 +2,33 @@
     ViewBag.Title = "Home Page";
 }
 
+<br />
 <div class="jumbotron">
     <h1>PRZEJAZDY KOLEJOWE</h1>
 </div>
 
 <div class="row">
-    <p>Super extra cool opis strony z bardzo przydatnymi napisami</p>
-</div>
+
+    <div><input type="button" value="ZAłÓŻ KONTO"></div>
+
+    <br /><br />
+    <form id="form" method="post" enctype="multipart/form-data">
+        <fieldset id="fieldset">
+            <legend id="legend">WYPEŁNIJ DANE LOGOWANIA</legend>
+            <table id="tab">
+                <tr>
+                    <td>Login: </td>
+                    <td>
+                        <input type="text"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hasło: </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <div><input type="submit" value="ZALOGUJ"></div>
+    </form>

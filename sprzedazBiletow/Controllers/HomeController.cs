@@ -25,7 +25,7 @@ namespace sprzedazBiletow.Controllers
             return View();
         }
 
-        public ActionResult Kup()
+        public ActionResult Konto()
         {
             ViewBag.Message = ":)";
 
