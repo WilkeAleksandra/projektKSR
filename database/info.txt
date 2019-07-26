@@ -1,0 +1,5 @@
+Create.sql
+-zwróciæ uwagê na to czy gdzieœ trzeba dodaæ ograniczenia albo zmieniæ typ lub czy czegoœ brakuje
+
+queryTests.sql
+-po jednym rekordzie dla ka¿dej encji, trzeba dobraæ odpowiednie klucze obce bo baza u mnie zamiast liczyc od 1, w niektóry przypadkach zaczyna³¹ od 3 lub 6
