@@ -7,10 +7,9 @@ namespace backend
     [ServiceContract]
     public interface IService1
     {
-
         [OperationContract]
         Traveller GetTravellerDataByLogin(string login);
 
-        // TODO: dodaj tutaj operacje usługi
+     S   // TODO: dodaj tutaj operacje usługi
     }
 }

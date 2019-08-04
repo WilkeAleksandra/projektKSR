@@ -18,7 +18,7 @@ namespace DatabaseConnection
 
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             {
-                optionsBuilder.UseNpgsql("User ID=postgres;Password=password;Host=localhost;Port=5432;Database=traintickets;");
+                optionsBuilder.UseNpgsql("User ID=postgres;Password=adminadmin;Host=localhost;Port=5432;Database=tickets;");
                 base.OnConfiguring(optionsBuilder);
             }
         }

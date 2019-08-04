@@ -1,4 +1,5 @@
-﻿@{
+﻿@model sprzedazBiletow.Models.User
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -12,23 +13,30 @@
     <div><input type="button" value="ZAłÓŻ KONTO"></div>
 
     <br /><br />
+    @using (Html.BeginForm("Authorize", "Home", FormMethod.Post))
+    {
     <form id="form" method="post" enctype="multipart/form-data">
         <fieldset id="fieldset">
             <legend id="legend">WYPEŁNIJ DANE LOGOWANIA</legend>
             <table id="tab">
                 <tr>
-                    <td>Login: </td>
-                    <td>
-                        <input type="text"/>
-                    </td>
+                    <td>@Html.LabelFor(model => model.Login)</td>
+                    <td>@Html.EditorFor(model => model.Login)</td>
                 </tr>
                 <tr>
-                    <td>Hasło: </td>
-                    <td>
-                        <input type="text" />
-                    </td>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Login)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Password)</td>
+                    <td>@Html.EditorFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Password)</td>
                 </tr>
             </table>
         </fieldset>
-        <div><input type="submit" value="ZALOGUJ"></div>
+        <div><input type="submit" value="ZALOGUJ"/></div>
     </form>
+    }
