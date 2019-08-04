@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
-// skojarzone z zestawem.
+// powiązane z zestawem.
 [assembly: AssemblyTitle("backend")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -14,22 +14,22 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-//Ustawienie wartości false dla elementu ComVisible sprawia, że typy w tym zestawie nie będą widoczne
-// dla składników COM. Jeśli potrzebny jest dostęp do typu w tym zestawie z 
+// Ustawienie elementu ComVisible na wartość false sprawia, że typy w tym zestawie są niewidoczne
+// dla składników COM. Jeśli potrzebny jest dostęp do typu w tym zestawie z
 // COM, ustaw wartość true dla atrybutu ComVisible tego typu.
 [assembly: ComVisible(false)]
 
 // Następujący identyfikator GUID jest identyfikatorem biblioteki typów w przypadku udostępnienia tego projektu w modelu COM
-[assembly: Guid("066a79b8-6409-4d6a-958c-7b2d1ea69860")]
+[assembly: Guid("8e56bba6-31b1-4b15-9f5e-47d8237550c0")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //
 //      Wersja główna
-//      Wersja pomocnicza 
+//      Wersja pomocnicza
 //      Numer kompilacji
-//      Poprawka
+//      Rewizja
 //
-// Możesz określić wszystkie wartości lub użyć domyślnych numerów poprawki i kompilacji 
+// Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
