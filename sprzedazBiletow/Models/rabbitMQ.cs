@@ -28,6 +28,7 @@ namespace sprzedazBiletow.Models
             replyQueueName = channel.QueueDeclare().QueueName;
             consumer = new EventingBasicConsumer(channel);
             TaskCompletionSource<string> tcs;
+
             consumer.Received += (model, ea) =>
             {
                 if (!callbackMapper.TryRemove(ea.BasicProperties.CorrelationId, out tcs))
@@ -73,21 +74,26 @@ namespace sprzedazBiletow.Models
 
     public class Rpc
     {
-        public void sendMessage(string login, string password)
+        public string sendMessage(string login, string password)
         {
             string message = login + "," + password;
-            Task t = InvokeAsync(message);
+            Task<string> t = InvokeAsync(message);
             t.Wait();
+
+            return t.Result;
         }
-        private static async Task InvokeAsync(string message)
+
+        private static async Task<string> InvokeAsync(string message)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());
             var rpcClient = new rabbitMQ();
 
-
-            var response = await rpcClient.CallAsync(message.ToString());
+            var result = await rpcClient.CallAsync(message);
+            Console.WriteLine(result);
 
             rpcClient.Close();
+
+            return result;
         }
     }
 }

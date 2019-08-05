@@ -32,11 +32,10 @@ namespace sprzedazBiletow.Controllers
         }
 
         [HttpPost]
-        public ActionResult Authorize(sprzedazBiletow.Models.User userModel)
+        public ActionResult Authorize(Models.User userModel)
         {
-            sprzedazBiletow.Models.Rpc rpc = new sprzedazBiletow.Models.Rpc();
-            rpc.sendMessage(userModel.Login, userModel.Password);
-
+            Models.Rpc rpc = new Models.Rpc();
+            var result = rpc.sendMessage(userModel.Login, userModel.Password);
             return Konto();
         }
     }

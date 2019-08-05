@@ -3,10 +3,7 @@ using DatabaseConnection.Repositories;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace backend
 {
@@ -18,8 +15,15 @@ namespace backend
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "sendQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
+                channel.QueueDeclare(
+                    queue: "sendQueue",
+                    durable: false, 
+                    exclusive: false,
+                    autoDelete: false, 
+                    arguments: null);
+
                 channel.BasicQos(0, 1, false);
+
                 var consumer = new EventingBasicConsumer(channel);
                 channel.BasicConsume(queue: "sendQueue", autoAck: false, consumer: consumer);
                 Console.WriteLine(" [x] Awaiting RPC requests");
@@ -36,11 +40,10 @@ namespace backend
                     try
                     {
                         var message = Encoding.UTF8.GetString(body);
-
                         string[] travellerData = message.Split(',');
 
                         Console.WriteLine(" Login credentials: ({0})", message);
-                        response = verifyTraveller(travellerData[0], travellerData[1]).ToString();
+                        response = VerifyTraveller(travellerData[0], travellerData[1]).ToString();
                         Console.WriteLine(" response ({0})", response);
                     }
                     catch (Exception e)
@@ -51,17 +54,23 @@ namespace backend
                     finally
                     {
                         var responseBytes = Encoding.UTF8.GetBytes(response);
-                        channel.BasicPublish(exchange: "", routingKey: props.ReplyTo, basicProperties: replyProps, body: responseBytes);
-                        channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                        channel.BasicPublish(
+                            exchange: "",
+                            routingKey: props.ReplyTo,
+                            basicProperties: replyProps,
+                            body: responseBytes);
+
+                        channel.BasicAck(
+                            deliveryTag: ea.DeliveryTag,
+                            multiple: false);
                     }
                 };
-
                 Console.WriteLine(" Press [enter] to exit.");
                 Console.ReadLine();
             }
         }
 
-        private static bool verifyTraveller(string login, string password)
+        private static bool VerifyTraveller(string login, string password)
         {
             TravellerRepository travellerRepository = new TravellerRepository();
             Traveller traveller = travellerRepository.FindUserByLogin(login);
