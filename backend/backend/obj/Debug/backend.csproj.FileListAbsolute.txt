@@ -163,3 +163,6 @@ C:\Users\Magdalena\Desktop\wakacje2019\backend\backend\bin\Debug\Microsoft.Exten
 C:\Users\Magdalena\Desktop\wakacje2019\backend\backend\bin\Debug\System.ComponentModel.Annotations.dll
 C:\Users\Magdalena\Desktop\wakacje2019\backend\backend\bin\Debug\Microsoft.Extensions.Configuration.xml
 C:\Users\Magdalena\Desktop\wakacje2019\backend\backend\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\STUDIA\KSR\projektKSR\backend\backend\bin\Debug\backend.exe.config
+D:\STUDIA\KSR\projektKSR\backend\backend\obj\Debug\backend.exe
+D:\STUDIA\KSR\projektKSR\backend\backend\obj\Debug\backend.pdb
