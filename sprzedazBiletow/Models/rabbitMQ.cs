@@ -83,6 +83,7 @@ namespace sprzedazBiletow.Models
             var rpcClient = new RabbitMQ();
 
             var result = rpcClient.CallAsync(message);
+            
             LoginResponse loginResponse = ParseLoginResponse(result);
 
             rpcClient.Close();

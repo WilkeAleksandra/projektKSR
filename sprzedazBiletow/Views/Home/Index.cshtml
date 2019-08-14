@@ -1,6 +1,10 @@
 ﻿@model sprzedazBiletow.Models.LoginRequest
 @{
     ViewBag.Title = "Home Page";
+    if(Session["userID"] != null)
+    {
+        Response.Redirect("~/Home/Konto");
+    }
 }
 
 <br />
@@ -15,10 +19,15 @@
     <br /><br />
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
+
     <form id="form" method="post" enctype="multipart/form-data">
         <fieldset id="fieldset">
             <legend id="legend">WYPEŁNIJ DANE LOGOWANIA</legend>
             <table id="tab">
+                <tr>
+                    <td></td>
+                    <td><font color="red">@Html.DisplayFor(model => model.LoginErrorMessage)</font></td>
+                </tr>
                 <tr>
                     <td>@Html.LabelFor(model => model.Login)</td>
                     <td>@Html.EditorFor(model => model.Login)</td>
