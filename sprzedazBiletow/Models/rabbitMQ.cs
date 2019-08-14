@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -16,6 +15,8 @@ namespace sprzedazBiletow.Models
         private readonly IModel channel;
         private readonly string replyQueueName;
         private readonly EventingBasicConsumer consumer;
+        private readonly BlockingCollection<string> respQueue = new BlockingCollection<string>();
+        private readonly IBasicProperties props;
         private readonly ConcurrentDictionary<string, TaskCompletionSource<string>> callbackMapper =
                     new ConcurrentDictionary<string, TaskCompletionSource<string>>();
 
@@ -27,28 +28,26 @@ namespace sprzedazBiletow.Models
             channel = connection.CreateModel();
             replyQueueName = channel.QueueDeclare().QueueName;
             consumer = new EventingBasicConsumer(channel);
-            TaskCompletionSource<string> tcs;
 
-            consumer.Received += (model, ea) =>
-            {
-                if (!callbackMapper.TryRemove(ea.BasicProperties.CorrelationId, out tcs))
-                    return;
-                var body = ea.Body;
-                var response = Encoding.UTF8.GetString(body);
-                tcs.TrySetResult(response);
-            };
-        }
-
-        public Task<string> CallAsync(string message, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            IBasicProperties props = channel.CreateBasicProperties();
+            props = channel.CreateBasicProperties();
             var correlationId = Guid.NewGuid().ToString();
             props.CorrelationId = correlationId;
             props.ReplyTo = replyQueueName;
-            var messageBytes = Encoding.UTF8.GetBytes(message);
-            var tcs = new TaskCompletionSource<string>();
-            callbackMapper.TryAdd(correlationId, tcs);
 
+            consumer.Received += (model, ea) =>
+            {
+                var body = ea.Body;
+                var response = Encoding.UTF8.GetString(body);
+                if (ea.BasicProperties.CorrelationId == correlationId)
+                {
+                    respQueue.Add(response);
+                }
+            };
+        }
+
+        public string CallAsync(string message)
+        {
+            var messageBytes = Encoding.UTF8.GetBytes(message);
             channel.BasicPublish(
                 exchange: "",
                 routingKey: QUEUE_NAME,
@@ -60,10 +59,7 @@ namespace sprzedazBiletow.Models
                 queue: replyQueueName,
                 autoAck: true);
 
-            TaskCompletionSource<string> tmp;
-
-            cancellationToken.Register(() => callbackMapper.TryRemove(correlationId, out tmp));
-            return tcs.Task;
+            return respQueue.Take();
         }
 
         public void Close()
@@ -74,26 +70,38 @@ namespace sprzedazBiletow.Models
 
     public class Rpc
     {
-        public string sendMessage(string login, string password)
+        public LoginResponse sendMessage(string login, string password)
         {
             string message = login + "," + password;
-            Task<string> t = InvokeAsync(message);
+            Task<LoginResponse> t = InvokeAsync(message);
             t.Wait();
 
             return t.Result;
         }
 
-        private static async Task<string> InvokeAsync(string message)
+        private static async Task<LoginResponse> InvokeAsync(string message)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());
             var rpcClient = new rabbitMQ();
 
-            var result = await rpcClient.CallAsync(message);
-            Console.WriteLine(result);
+            var result = rpcClient.CallAsync(message);
+            LoginResponse loginResponse = ParseLoginResponse(result);
 
             rpcClient.Close();
 
-            return result;
+            return loginResponse;
+        }
+
+        private static LoginResponse ParseLoginResponse(string result)
+        {
+            string[] resultSplit = result.Split(',');
+            return new LoginResponse(
+                Boolean.Parse(resultSplit[0]),
+                Int32.Parse(resultSplit[1]),
+                resultSplit[2],
+                resultSplit[3], 
+                resultSplit[4],
+                resultSplit[5]);
         }
     }
 }

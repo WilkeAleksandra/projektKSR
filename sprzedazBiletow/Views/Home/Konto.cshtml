@@ -1,4 +1,6 @@
-﻿<br />
+﻿@model sprzedazBiletow.Models.User
+
+<br />
 <h1>TWOJE KONTO</h1>
 <br /><br />
 
@@ -6,7 +8,7 @@
 
 <br /><br />
 <div>
-    <h5> IMIĘ I NAZWISKO: </h5>
+    <h5> IMIĘ I NAZWISKO: @Html.DisplayFor(Model => Model.Login)  </h5>
     <h5> RODZAJ ULGI: </h5>
     <h5> LISTA ZAKUPIONYCH BILETÓW: </h5>
 </div>
