@@ -7,9 +7,9 @@ using RabbitMQ.Client.Events;
 
 namespace sprzedazBiletow.Models
 {
-    public class rabbitMQ
+    public class RabbitMQ
     {
-        private const string QUEUE_NAME = "sendQueue";
+        private const string QUEUE_NAME = "loginQueue";
 
         private readonly IConnection connection;
         private readonly IModel channel;
@@ -17,10 +17,8 @@ namespace sprzedazBiletow.Models
         private readonly EventingBasicConsumer consumer;
         private readonly BlockingCollection<string> respQueue = new BlockingCollection<string>();
         private readonly IBasicProperties props;
-        private readonly ConcurrentDictionary<string, TaskCompletionSource<string>> callbackMapper =
-                    new ConcurrentDictionary<string, TaskCompletionSource<string>>();
 
-        public rabbitMQ()
+        public RabbitMQ()
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
 
@@ -82,7 +80,7 @@ namespace sprzedazBiletow.Models
         private static async Task<LoginResponse> InvokeAsync(string message)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());
-            var rpcClient = new rabbitMQ();
+            var rpcClient = new RabbitMQ();
 
             var result = rpcClient.CallAsync(message);
             LoginResponse loginResponse = ParseLoginResponse(result);
@@ -96,8 +94,8 @@ namespace sprzedazBiletow.Models
         {
             string[] resultSplit = result.Split(',');
             return new LoginResponse(
-                Boolean.Parse(resultSplit[0]),
-                Int32.Parse(resultSplit[1]),
+                bool.Parse(resultSplit[0]),
+                int.Parse(resultSplit[1]),
                 resultSplit[2],
                 resultSplit[3], 
                 resultSplit[4],

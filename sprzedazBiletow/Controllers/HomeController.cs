@@ -1,5 +1,4 @@
 ﻿using sprzedazBiletow.Models;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace sprzedazBiletow.Controllers
@@ -23,7 +22,7 @@ namespace sprzedazBiletow.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(User userModel)
+        public ActionResult Index(LoginRequest userModel)
         {
             Rpc rpc = new Rpc();
             var loginResponse = rpc.sendMessage(userModel.Login, userModel.Password);

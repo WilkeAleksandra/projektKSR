@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace sprzedazBiletow.Models
 {
-    public partial class User
+    public partial class LoginRequest
     {
         public int UserID { get; set; }
         
