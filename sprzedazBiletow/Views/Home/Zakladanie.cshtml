@@ -1,0 +1,62 @@
+﻿@model sprzedazBiletow.Models.AccountRequest
+@{
+    ViewBag.Title = "Zakladanie";
+}
+
+<br /><br />
+@using (Html.BeginForm("Zakladanie", "Home", FormMethod.Post))
+{
+    <form id="form" method="post" enctype="multipart/form-data">
+        <fieldset id="fieldset">
+            <legend id="legend">WYPEŁNIJ DANE</legend>
+            <table id="tab">
+                <tr>
+                    <td></td>
+                    <td><font color="red">@Html.DisplayFor(model => model.AccountErrorMessage)</font></td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Login)</td>
+                    <td>@Html.EditorFor(model => model.Login)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Login)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Password)</td>
+                    <td>@Html.EditorFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.FirstName)</td>
+                    <td>@Html.EditorFor(model => model.FirstName)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.FirstName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.LastName)</td>
+                    <td>@Html.EditorFor(model => model.LastName)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.LastName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.Email)</td>
+                    <td>@Html.EditorFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>@Html.ValidationMessageFor(model => model.Email)</td>
+                </tr>
+            </table>
+        </fieldset>
+        <div><input type="submit" value="ZAŁÓŻ KONTO" /></div>
+    </form>
+}
+

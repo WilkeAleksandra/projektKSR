@@ -77,6 +77,16 @@ namespace sprzedazBiletow.Models
             return t.Result;
         }
 
+        public String sendMessage(string login, string password, string firstName, string lastName, string email)
+        {
+            string message = login + "," + password + "," + firstName + "," + lastName + "," + email;
+            //Task<> t = InvokeAsync(message);
+            //t.Wait();
+
+            //return t.Result;
+            return "Success";
+        }
+
         private static async Task<LoginResponse> InvokeAsync(string message)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());

@@ -157,6 +157,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountRequest.cs" />
     <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\rabbitMQ.cs" />
     <Compile Include="Models\LoginRequest.cs" />
@@ -279,6 +280,7 @@
     <Content Include="Views\Home\Wyszukaj.cshtml" />
     <Content Include="Views\Home\Konto.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Zakladanie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

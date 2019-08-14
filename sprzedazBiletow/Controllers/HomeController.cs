@@ -16,6 +16,29 @@ namespace sprzedazBiletow.Controllers
         }
 
         [HttpGet]
+        public ActionResult Zakladanie()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Zakladanie(AccountRequest userModel)
+        {
+            Rpc rpc = new Rpc();
+            var loginResponse = rpc.sendMessage(userModel.Login, userModel.Password, userModel.FirstName, userModel.LastName, userModel.Email);
+            if (loginResponse == "Success")
+            {
+                userModel.AccountErrorMessage = "Konto zostało pomyślnie utworzone.";
+                return View("Zakladanie", userModel);
+            }
+            else
+            {
+                userModel.AccountErrorMessage = "Konto nie zostało utworzone.";
+                return View("Zakladanie", userModel);
+            }
+        }
+
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
@@ -39,7 +62,7 @@ namespace sprzedazBiletow.Controllers
                 userModel.LoginErrorMessage = "Podałeś zły login lub hasło.";
                 return View("Index", userModel);
             }
-            return View(userModel);
+            //return View(userModel);
         }
 
         public ActionResult LogOut()

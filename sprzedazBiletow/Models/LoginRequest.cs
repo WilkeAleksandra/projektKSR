@@ -12,7 +12,7 @@ namespace sprzedazBiletow.Models
         [Required(ErrorMessage = "To pole jest wymagane.")]
         public string Login { get; set; }
         
-        [DisplayName("PASSWORD: ")]
+        [DisplayName("HASŁO: ")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "To pole jest wymagane.")]
         public string Password { get; set; }
