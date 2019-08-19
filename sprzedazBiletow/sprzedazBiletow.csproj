@@ -157,8 +157,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountRequest.cs" />
-    <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Models\RegisterRequest.cs" />
+    <Compile Include="Models\UserDataResponse.cs" />
     <Compile Include="Models\rabbitMQ.cs" />
     <Compile Include="Models\LoginRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

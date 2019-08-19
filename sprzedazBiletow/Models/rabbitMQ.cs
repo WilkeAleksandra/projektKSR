@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using RabbitMQ.Client;
@@ -7,10 +8,14 @@ using RabbitMQ.Client.Events;
 
 namespace sprzedazBiletow.Models
 {
+    public enum QueueName { loginQueue, registerQueue }
+
     public class RabbitMQ
     {
-        private const string QUEUE_NAME = "loginQueue";
-
+        private readonly Dictionary<QueueName, string> Queues = new Dictionary<QueueName, string>(){
+                                                {QueueName.loginQueue,"loginQueue"},
+                                                {QueueName.registerQueue, "registerQueue"}
+                                            };
         private readonly IConnection connection;
         private readonly IModel channel;
         private readonly string replyQueueName;
@@ -43,12 +48,12 @@ namespace sprzedazBiletow.Models
             };
         }
 
-        public string CallAsync(string message)
+        public string CallAsync(string message, QueueName queuename)
         {
             var messageBytes = Encoding.UTF8.GetBytes(message);
             channel.BasicPublish(
                 exchange: "",
-                routingKey: QUEUE_NAME,
+                routingKey: Queues[queuename],
                 basicProperties: props,
                 body: messageBytes);
 
@@ -68,43 +73,46 @@ namespace sprzedazBiletow.Models
 
     public class Rpc
     {
-        public LoginResponse sendMessage(string login, string password)
+        public UserDataResponse SendLoginRequest(LoginRequest loginRequest)
         {
-            string message = login + "," + password;
-            Task<LoginResponse> t = InvokeAsync(message);
+            string message = loginRequest.Login + "," + loginRequest.Password;
+            Task<UserDataResponse> t = InvokeAsync(message, QueueName.loginQueue);
             t.Wait();
 
             return t.Result;
         }
 
-        public String sendMessage(string login, string password, string firstName, string lastName, string email)
+        public UserDataResponse SendRegisterRequest(RegisterRequest registerRequest)
         {
-            string message = login + "," + password + "," + firstName + "," + lastName + "," + email;
-            //Task<> t = InvokeAsync(message);
-            //t.Wait();
+            string message = registerRequest.Login + "," +
+                registerRequest.Password + "," +
+                registerRequest.FirstName + "," +
+                registerRequest.LastName + "," +
+                registerRequest.Email;
+            Task<UserDataResponse> t = InvokeAsync(message, QueueName.registerQueue);
+            t.Wait();
 
-            //return t.Result;
-            return "Success";
+            return t.Result;
         }
 
-        private static async Task<LoginResponse> InvokeAsync(string message)
+        private static async Task<UserDataResponse> InvokeAsync(string message, QueueName queueName)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());
             var rpcClient = new RabbitMQ();
 
-            var result = rpcClient.CallAsync(message);
-            
-            LoginResponse loginResponse = ParseLoginResponse(result);
+            var result = rpcClient.CallAsync(message, queueName);
+
+            UserDataResponse loginResponse = ParseUserDataResponse(result);
 
             rpcClient.Close();
 
             return loginResponse;
         }
 
-        private static LoginResponse ParseLoginResponse(string result)
+        private static UserDataResponse ParseUserDataResponse(string result)
         {
             string[] resultSplit = result.Split(',');
-            return new LoginResponse(
+            return new UserDataResponse(
                 bool.Parse(resultSplit[0]),
                 int.Parse(resultSplit[1]),
                 resultSplit[2],

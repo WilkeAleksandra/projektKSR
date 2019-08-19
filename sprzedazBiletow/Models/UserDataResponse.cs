@@ -1,9 +1,9 @@
 ﻿
 namespace sprzedazBiletow.Models
 {
-    public class LoginResponse
+    public class UserDataResponse
     {
-        public LoginResponse(bool Status, int UserID, string FirstName, string LastName, string Email, string Login)
+        public UserDataResponse(bool Status, int UserID, string FirstName, string LastName, string Email, string Login)
         {
             this.Status = Status;
             this.UserID = UserID;

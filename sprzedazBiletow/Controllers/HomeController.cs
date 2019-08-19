@@ -22,11 +22,16 @@ namespace sprzedazBiletow.Controllers
         }
 
         [HttpPost]
-        public ActionResult Zakladanie(AccountRequest userModel)
+        public ActionResult Zakladanie(RegisterRequest userModel)
         {
+            //userModel.Email = "test";
+            //userModel.FirstName = "test";
+            //userModel.LastName = "test";
+            //userModel.Password = "test";
+            //userModel.Login = "test";
             Rpc rpc = new Rpc();
-            var loginResponse = rpc.sendMessage(userModel.Login, userModel.Password, userModel.FirstName, userModel.LastName, userModel.Email);
-            if (loginResponse == "Success")
+            var registerResponse = rpc.SendRegisterRequest(userModel);
+            if (registerResponse.Status)
             {
                 userModel.AccountErrorMessage = "Konto zostało pomyślnie utworzone.";
                 return View("Zakladanie", userModel);
@@ -48,7 +53,7 @@ namespace sprzedazBiletow.Controllers
         public ActionResult Index(LoginRequest userModel)
         {
             Rpc rpc = new Rpc();
-            var loginResponse = rpc.sendMessage(userModel.Login, userModel.Password);
+            var loginResponse = rpc.SendLoginRequest(userModel);
             if (loginResponse.Status)
             {
                 Session["userID"] = loginResponse.UserID;

@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace sprzedazBiletow.Models
 {
-    public class AccountRequest
+    public class RegisterRequest
     {
+        internal string password;
+
         public int UserID { get; set; }
 
         [DisplayName("LOGIN: ")]

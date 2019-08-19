@@ -211,8 +211,8 @@ E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Razor.xml
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\Antlr3.Runtime.pdb
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.xml
-E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojAssemblyReference.cache
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csproj.CoreCompileInputs.cache
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csproj.CopyComplete
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.dll
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.pdb
+E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojAssemblyReference.cache
