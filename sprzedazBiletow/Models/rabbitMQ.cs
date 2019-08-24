@@ -8,13 +8,14 @@ using RabbitMQ.Client.Events;
 
 namespace sprzedazBiletow.Models
 {
-    public enum QueueName { loginQueue, registerQueue }
+    public enum QueueName { loginQueue, registerQueue, searchQueue }
 
     public class RabbitMQ
     {
         private readonly Dictionary<QueueName, string> Queues = new Dictionary<QueueName, string>(){
                                                 {QueueName.loginQueue,"loginQueue"},
-                                                {QueueName.registerQueue, "registerQueue"}
+                                                {QueueName.registerQueue, "registerQueue"},
+                                                {QueueName.searchQueue, "searchQueue" }
                                             };
         private readonly IConnection connection;
         private readonly IModel channel;
@@ -94,7 +95,17 @@ namespace sprzedazBiletow.Models
 
             return t.Result;
         }
+        public UserDataResponse SendSearchRequest(SearchView searchView)
+        {
+            string message = searchView.startStation + "," +
+                searchView.endStation + "," +
+                searchView.date + "," +
+                searchView.hour;
+            Task<UserDataResponse> t = InvokeAsync(message, QueueName.searchQueue);
+            t.Wait();
 
+            return t.Result;
+        }
         private static async Task<UserDataResponse> InvokeAsync(string message, QueueName queueName)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());

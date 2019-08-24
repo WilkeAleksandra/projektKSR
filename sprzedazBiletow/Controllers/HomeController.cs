@@ -1,4 +1,5 @@
 ﻿using sprzedazBiletow.Models;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace sprzedazBiletow.Controllers
@@ -10,8 +11,39 @@ namespace sprzedazBiletow.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Wyszukaj()
         {
+            List<SelectListItem> listSelectListItem = new List<SelectListItem>();
+            List<City> cities = new List<City>();
+            cities.Add(new City(1,"Warszawa"));
+            cities.Add(new City(2, "Gdańsk"));
+            cities.Add(new City(3, "Wrocław"));
+            cities.Add(new City(4, "Kraków"));
+
+            foreach(City city in cities)
+            {
+                SelectListItem selectListItem = new SelectListItem()
+                {
+                    Text = city.Name,
+                    Value = city.Id.ToString(),
+                    Selected = city.isSelected
+                };
+                listSelectListItem.Add(selectListItem);
+            }
+
+            SearchView searchView = new SearchView();
+            searchView.cities = listSelectListItem;
+
+            return View(searchView);
+        }
+
+        [HttpPost]
+        public ActionResult Wyszukaj(SearchView searchView)
+        {
+            Rpc rpc = new Rpc();
+            var loginResponse = rpc.SendSearchRequest(searchView);
+
             return View();
         }
 
@@ -46,6 +78,7 @@ namespace sprzedazBiletow.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            //dodać obsługę wysyłania widomości do kolejki i odbioru
             return View();
         }
 
