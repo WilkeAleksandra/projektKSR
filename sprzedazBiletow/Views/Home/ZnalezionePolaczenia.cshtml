@@ -1,0 +1,47 @@
+﻿@model sprzedazBiletow.Models.SearchResponse
+
+@{
+    ViewBag.Title = "ZnalezionePolaczenia";
+}
+
+<h2>Znalezione Połączenia</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.LabelFor(model => model.TrainName)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.DepartureHour)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.Price)
+        </th>
+        <th>
+            @Html.LabelFor(model => model.Time)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.Display("TrainName")
+        </td>
+        <td>
+            @Html.Display("DepartureDate")
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DepartureHour)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Time)
+        </td>
+    </tr>
+
+</table>

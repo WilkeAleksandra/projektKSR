@@ -1,4 +1,4 @@
-﻿@model sprzedazBiletow.Models.SearchView
+﻿@model sprzedazBiletow.Models.SearchRequest
     @{
         ViewBag.Title = "Wyszukiwarka";
     }
@@ -7,52 +7,52 @@
     @using (Html.BeginForm())
     {
 
-    <div>
-        <form id="form" enctype="multipart/form-data">
-            <fieldset id="fieldset">
-                <legend id="legend">FORMULARZ WYSZUKIWANIA POŁĄCZEŃ</legend>
-                <table id="tab">
-                    <tr>
-                        <td>@Html.LabelFor(model => model.startStation)</td>
-                        <td>@Html.ListBoxFor(model => model.startStation, Model.cities)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>@Html.ValidationMessageFor(model => model.startStation)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.LabelFor(model => model.endStation)</td>
-                        <td>@Html.ListBoxFor(model => model.endStation, Model.cities)</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>@Html.ValidationMessageFor(model => model.endStation)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.LabelFor(model => model.date)</td>
-                        <td>@Html.EditorFor(model => model.date)</td>
-                        @*<td>
-                            <input type="text" id="datepicker" />
-                        </td>*@
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>@Html.ValidationMessageFor(model => model.date)</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.LabelFor(model => model.hour)</td>
-                        <td>@Html.EditorFor(model => model.hour)</td>
-                        @*<td>
-                            <input type="text" id="time" />
-                        </td>*@
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>@Html.ValidationMessageFor(model => model.hour)</td>
-                    </tr>
-                </table>
-            </fieldset>
-            <div id="szukaj"><input type="submit" value="SZUKAJ POŁĄCZENIA"></div>
-        </form>
-    </div>
+        <div>
+            <form id="form" enctype="multipart/form-data">
+                <fieldset id="fieldset">
+                    <legend id="legend">FORMULARZ WYSZUKIWANIA POŁĄCZEŃ</legend>
+                    <table id="tab">
+                        <tr>
+                            <td>@Html.LabelFor(model => model.startStation)</td>
+                            <td>@Html.ListBoxFor(model => model.startStation, Model.cities)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.startStation)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.endStation)</td>
+                            <td>@Html.ListBoxFor(model => model.endStation, Model.cities)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.endStation)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(model => model.date)</td>
+                            <td>@Html.EditorFor(model => model.date)</td>
+                            @*<td>
+                                    <input type="text" id="datepicker" />
+                                </td>*@
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.date)</td>
+                        </tr>
+                        @*<tr>
+                            <td>@Html.LabelFor(model => model.hour)</td>
+                            <td>@Html.EditorFor(model => model.hour)</td>
+                            <td>
+                                    <input type="text" id="time" />
+                                </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessageFor(model => model.hour)</td>
+                        </tr>*@
+                    </table>
+                </fieldset>
+                <div id="szukaj"><input type="submit" value="SZUKAJ POŁĄCZENIA"></div>
+            </form>
+        </div>
     }

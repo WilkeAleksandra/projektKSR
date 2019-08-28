@@ -158,11 +158,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\RegisterRequest.cs" />
-    <Compile Include="Models\SearchView.cs" />
-    <Compile Include="Models\UserDataResponse.cs" />
+    <Compile Include="Models\QueueNameEnum.cs" />
+    <Compile Include="Models\Requests\RegisterRequest.cs" />
+    <Compile Include="Models\Rpc.cs" />
+    <Compile Include="Models\Responses\SearchResponse.cs" />
+    <Compile Include="Models\Requests\SearchRequest.cs" />
+    <Compile Include="Models\Responses\UserDataResponse.cs" />
     <Compile Include="Models\rabbitMQ.cs" />
-    <Compile Include="Models\LoginRequest.cs" />
+    <Compile Include="Models\Requests\LoginRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +286,7 @@
     <Content Include="Views\Home\Konto.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Zakladanie.cshtml" />
+    <Content Include="Views\Home\ZnalezionePolaczenia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

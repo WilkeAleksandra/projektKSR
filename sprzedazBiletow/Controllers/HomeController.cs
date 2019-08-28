@@ -6,22 +6,38 @@ namespace sprzedazBiletow.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly List<City> cities 
+            = new List<City>(){
+                (new City(1,"Warszawa")),
+                (new City(2, "Kutno")),
+                (new City(3, "Konin")),
+                (new City(4, "Poznań")),
+                (new City(5, "Szczecin")),
+                (new City(6, "Stargard")),
+                (new City(7, "Łobez")),
+                (new City(8, "Białogard")),
+                (new City(9, "Koszalin")),
+                (new City(10, "Słupsk")),
+                (new City(11, "Wejherowo")),
+                (new City(12, "Gdańsk"))
+        };
+
         public ActionResult Konto()
         {
             return View();
+        }
+
+        public ActionResult ZnalezionePolaczenia(SearchResponse searchModel)
+        {
+            return View(searchModel);
         }
 
         [HttpGet]
         public ActionResult Wyszukaj()
         {
             List<SelectListItem> listSelectListItem = new List<SelectListItem>();
-            List<City> cities = new List<City>();
-            cities.Add(new City(1,"Warszawa"));
-            cities.Add(new City(2, "Gdańsk"));
-            cities.Add(new City(3, "Wrocław"));
-            cities.Add(new City(4, "Kraków"));
-
-            foreach(City city in cities)
+            
+            foreach (City city in cities)
             {
                 SelectListItem selectListItem = new SelectListItem()
                 {
@@ -32,19 +48,19 @@ namespace sprzedazBiletow.Controllers
                 listSelectListItem.Add(selectListItem);
             }
 
-            SearchView searchView = new SearchView();
-            searchView.cities = listSelectListItem;
+            SearchRequest searchRequest = new SearchRequest();
+            searchRequest.cities = listSelectListItem;
 
-            return View(searchView);
+            return View(searchRequest);
         }
 
         [HttpPost]
-        public ActionResult Wyszukaj(SearchView searchView)
+        public ActionResult Wyszukaj(SearchRequest searchModel)
         {
             Rpc rpc = new Rpc();
-            var loginResponse = rpc.SendSearchRequest(searchView);
+            var searchResponse = rpc.SendSearchRequest(searchModel);
 
-            return View();
+            return RedirectToAction("ZnalezionePolaczenia", searchResponse[0]);
         }
 
         [HttpGet]
@@ -56,23 +72,13 @@ namespace sprzedazBiletow.Controllers
         [HttpPost]
         public ActionResult Zakladanie(RegisterRequest userModel)
         {
-            //userModel.Email = "test";
-            //userModel.FirstName = "test";
-            //userModel.LastName = "test";
-            //userModel.Password = "test";
-            //userModel.Login = "test";
             Rpc rpc = new Rpc();
             var registerResponse = rpc.SendRegisterRequest(userModel);
             if (registerResponse.Status)
-            {
                 userModel.AccountErrorMessage = "Konto zostało pomyślnie utworzone.";
-                return View("Zakladanie", userModel);
-            }
             else
-            {
                 userModel.AccountErrorMessage = "Konto nie zostało utworzone.";
-                return View("Zakladanie", userModel);
-            }
+            return View("Zakladanie", userModel);
         }
 
         [HttpGet]
@@ -100,7 +106,6 @@ namespace sprzedazBiletow.Controllers
                 userModel.LoginErrorMessage = "Podałeś zły login lub hasło.";
                 return View("Index", userModel);
             }
-            //return View(userModel);
         }
 
         public ActionResult LogOut()

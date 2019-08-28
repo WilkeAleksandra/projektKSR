@@ -6,26 +6,26 @@ using System.Web.Mvc;
 
 namespace sprzedazBiletow.Models
 {
-    public partial class SearchView
+    public partial class SearchRequest
     {
-        public IEnumerable<SelectListItem> cities { get; set; }
+        public List<SelectListItem> cities { get; set; }
 
         [DisplayName("STACJA POCZĄTKOWA: ")]
         [Required(ErrorMessage = "To pole jest wymagane.")]
-        public IEnumerable<string> startStation { get; set; }
+        public string startStation { get; set; }
 
         [DisplayName("STACJA KOŃCOWA: ")]
         [Required(ErrorMessage = "To pole jest wymagane.")]
-        public IEnumerable<string> endStation { get; set; }
+        public string endStation { get; set; }
 
         [DisplayName("DATA: ")]
         [DisplayFormat(ApplyFormatInEditMode =true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Required(ErrorMessage = "To pole jest wymagane.")]
         public DateTime date { get; set; }
 
-        [DisplayName("GODZINA: ")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: HH:mm}")]
-        public DateTime hour { get; set; }
+        //[DisplayName("GODZINA: ")]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: HH:mm}")]
+        //public DateTime hour { get; set; }
         public string SearchErrorMessage { get; set; }
 
     }
