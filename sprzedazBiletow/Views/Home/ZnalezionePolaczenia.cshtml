@@ -1,4 +1,4 @@
-﻿@model sprzedazBiletow.Models.SearchResponse
+﻿@model sprzedazBiletow.Models.SerachResponseView
 
 @{
     ViewBag.Title = "ZnalezionePolaczenia";
@@ -9,39 +9,55 @@
 <table class="table">
     <tr>
         <th>
-            @Html.LabelFor(model => model.TrainName)
+            Pociąg: 
         </th>
         <th>
-            @Html.LabelFor(model => model.DepartureDate)
+            Data: 
         </th>
         <th>
-            @Html.LabelFor(model => model.DepartureHour)
+            Godzina: 
         </th>
         <th>
-            @Html.LabelFor(model => model.Price)
+            Cena: 
         </th>
         <th>
-            @Html.LabelFor(model => model.Time)
+            Czas: 
         </th>
         <th></th>
     </tr>
 
-    <tr>
-        <td>
-            @Html.Display("TrainName")
-        </td>
-        <td>
-            @Html.Display("DepartureDate")
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.DepartureHour)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Time)
-        </td>
-    </tr>
+    @if (Model != null && Model.list.Count > 0)
+    {
+        foreach (var item in Model.list)
+        {
+            <tr>
+                <td>
+                    @item.TrainName
+                </td>
+                <td>
+                    @item.DepartureDate
+                </td>
+                <td>
+                    @item.DepartureHour
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Time
+                </td>
+                <td>
+                    <input type="checkbox" id="train">
+                </td>
+            </tr>
+
+        }
+        
+    }
 
 </table>
+
+@if (Model != null && Model.list.Count > 0)
+{
+    <input type="submit" value="KUP">
+}

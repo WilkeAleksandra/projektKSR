@@ -27,7 +27,8 @@ namespace sprzedazBiletow.Controllers
             return View();
         }
 
-        public ActionResult ZnalezionePolaczenia(SearchResponse searchModel)
+        [HttpGet]
+        public ActionResult ZnalezionePolaczenia(SerachResponseView searchModel)
         {
             return View(searchModel);
         }
@@ -58,9 +59,11 @@ namespace sprzedazBiletow.Controllers
         public ActionResult Wyszukaj(SearchRequest searchModel)
         {
             Rpc rpc = new Rpc();
-            var searchResponse = rpc.SendSearchRequest(searchModel);
+            SerachResponseView searchList = new SerachResponseView();
+            List<SearchResponse> searchResponse = rpc.SendSearchRequest(searchModel);
+            searchList.list = searchResponse;
 
-            return RedirectToAction("ZnalezionePolaczenia", searchResponse[0]);
+            return View("ZnalezionePolaczenia", searchList);
         }
 
         [HttpGet]

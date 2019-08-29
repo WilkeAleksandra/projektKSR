@@ -166,6 +166,7 @@
     <Compile Include="Models\Responses\UserDataResponse.cs" />
     <Compile Include="Models\rabbitMQ.cs" />
     <Compile Include="Models\Requests\LoginRequest.cs" />
+    <Compile Include="Models\SerachResponseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
