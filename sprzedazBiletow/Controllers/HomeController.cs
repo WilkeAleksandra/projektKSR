@@ -6,21 +6,7 @@ namespace sprzedazBiletow.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly List<City> cities 
-            = new List<City>(){
-                (new City(1,"Warszawa")),
-                (new City(2, "Kutno")),
-                (new City(3, "Konin")),
-                (new City(4, "Poznań")),
-                (new City(5, "Szczecin")),
-                (new City(6, "Stargard")),
-                (new City(7, "Łobez")),
-                (new City(8, "Białogard")),
-                (new City(9, "Koszalin")),
-                (new City(10, "Słupsk")),
-                (new City(11, "Wejherowo")),
-                (new City(12, "Gdańsk"))
-        };
+        public Cities Cities = new Cities();
 
         public ActionResult Konto()
         {
@@ -38,7 +24,7 @@ namespace sprzedazBiletow.Controllers
         {
             List<SelectListItem> listSelectListItem = new List<SelectListItem>();
             
-            foreach (City city in cities)
+            foreach (City city in Cities.list)
             {
                 SelectListItem selectListItem = new SelectListItem()
                 {

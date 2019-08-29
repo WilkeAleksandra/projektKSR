@@ -157,14 +157,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\QueueNameEnum.cs" />
+    <Compile Include="Models\DataProvider\Cities.cs" />
+    <Compile Include="Models\DataProvider\City.cs" />
+    <Compile Include="Models\Connection\QueueNameEnum.cs" />
     <Compile Include="Models\Requests\RegisterRequest.cs" />
-    <Compile Include="Models\Rpc.cs" />
+    <Compile Include="Models\Connection\Rpc.cs" />
     <Compile Include="Models\Responses\SearchResponse.cs" />
     <Compile Include="Models\Requests\SearchRequest.cs" />
     <Compile Include="Models\Responses\UserDataResponse.cs" />
-    <Compile Include="Models\rabbitMQ.cs" />
+    <Compile Include="Models\Connection\RabbitMQ.cs" />
     <Compile Include="Models\Requests\LoginRequest.cs" />
     <Compile Include="Models\SerachResponseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

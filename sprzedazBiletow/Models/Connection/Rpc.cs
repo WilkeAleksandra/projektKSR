@@ -7,21 +7,7 @@ namespace sprzedazBiletow.Models
 
     public class Rpc
     {
-        private readonly List<City> cities
-            = new List<City>(){
-                (new City(1,"Warszawa")),
-                (new City(2, "Kutno")),
-                (new City(3, "Konin")),
-                (new City(4, "Poznań")),
-                (new City(5, "Szczecin")),
-                (new City(6, "Stargard")),
-                (new City(7, "Łobez")),
-                (new City(8, "Białogard")),
-                (new City(9, "Koszalin")),
-                (new City(10, "Słupsk")),
-                (new City(11, "Wejherowo")),
-                (new City(12, "Gdańsk"))
-        };
+        public Cities Cities = new Cities();
 
         public UserDataResponse SendLoginRequest(LoginRequest loginRequest)
         {
@@ -52,8 +38,8 @@ namespace sprzedazBiletow.Models
         public List<SearchResponse> SendSearchRequest(SearchRequest searchRequest)
         {
             string message = searchRequest.date.ToString() + "," +
-                cities[Convert.ToInt32(searchRequest.startStation)-1].Name + "," +
-                cities[Convert.ToInt32(searchRequest.endStation)-1].Name;
+                Cities.list[Convert.ToInt32(searchRequest.startStation)-1].Name + "," +
+                Cities.list[Convert.ToInt32(searchRequest.endStation)-1].Name;
             //+ "," + searchRequest.hour
             Task<string> t = InvokeAsync(message, QueueName.searchQueue);
             t.Wait();
