@@ -6,8 +6,6 @@ namespace sprzedazBiletow.Models
 {
     public class RegisterRequest
     {
-        internal string password;
-
         public int UserID { get; set; }
 
         [DisplayName("LOGIN: ")]

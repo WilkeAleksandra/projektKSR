@@ -86,7 +86,8 @@ namespace sprzedazBiletow.Models
                     splitToSearchResponse[1],
                     splitToSearchResponse[2],
                     splitToSearchResponse[3],
-                    splitToSearchResponse[4]));
+                    splitToSearchResponse[4],
+                    splitToSearchResponse[5]));
             }
             return resultList;
         }
