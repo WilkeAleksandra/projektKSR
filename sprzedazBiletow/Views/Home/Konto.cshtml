@@ -1,4 +1,4 @@
-﻿@model sprzedazBiletow.Models.UserDataResponse
+﻿@model sprzedazBiletow.Models.Responses.BuyResponse
 @{
     ViewBag.Title = "Account Page";
 }
@@ -13,5 +13,12 @@
 <div>
     <h5> IMIĘ I NAZWISKO: <span>@Session["userName"].ToString()</span><span> @Session["userLastName"].ToString()</span>  </h5>
     <h5> ADRES EMAIL: <span>@Session["userEmail"].ToString()</span></h5>
+    </br>
+
+    @if (Model != null)
+    {
+        <p><font color="red">@Model.resultText</font></p>
+    }
+
     <h5> ZAKUPIONE BILETY: </h5>
 </div>

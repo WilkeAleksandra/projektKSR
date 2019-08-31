@@ -1,4 +1,5 @@
 ﻿using sprzedazBiletow.Models;
+using sprzedazBiletow.Models.Responses;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -13,6 +14,12 @@ namespace sprzedazBiletow.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Konto(BuyResponse response)
+        {
+            return View(response);
+        }
+
         [HttpGet]
         public ActionResult ZnalezionePolaczenia(SerachResponseView searchModel)
         {
@@ -22,12 +29,17 @@ namespace sprzedazBiletow.Controllers
         [HttpPost]
         public ActionResult ZnalezionePolaczenia(FormCollection form)
         {
+            BuyResponse response = new BuyResponse();
             string train = form["checkTrain"].ToString();
             Rpc rpc = new Rpc();
-            SerachResponseView searchList = new SerachResponseView();
-            bool searchResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString());
+            bool buyResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString());
 
-            return View();
+            if (buyResponse)
+                response.resultText = "Zakup został dokonany pomyślnie.";
+            else
+                response.resultText = "Nie udało się zrealizować żądania zakupu";
+
+            return View("Konto", response);
         }
 
         [HttpGet]

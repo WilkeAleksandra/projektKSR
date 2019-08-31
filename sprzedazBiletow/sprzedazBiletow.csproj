@@ -163,6 +163,7 @@
     <Compile Include="Models\Requests\BuyRequest.cs" />
     <Compile Include="Models\Requests\RegisterRequest.cs" />
     <Compile Include="Models\Connection\Rpc.cs" />
+    <Compile Include="Models\Responses\BuyResponse.cs" />
     <Compile Include="Models\Responses\SearchResponse.cs" />
     <Compile Include="Models\Requests\SearchRequest.cs" />
     <Compile Include="Models\Responses\UserDataResponse.cs" />
