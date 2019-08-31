@@ -19,6 +19,17 @@ namespace sprzedazBiletow.Controllers
             return View(searchModel);
         }
 
+        [HttpPost]
+        public ActionResult ZnalezionePolaczenia(FormCollection form)
+        {
+            string train = form["checkTrain"].ToString();
+            Rpc rpc = new Rpc();
+            SerachResponseView searchList = new SerachResponseView();
+            bool searchResponse = rpc.SendBuyRequest(train, Session["userID"].ToString());
+
+            return View();
+        }
+
         [HttpGet]
         public ActionResult Wyszukaj()
         {

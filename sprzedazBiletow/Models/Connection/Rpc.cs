@@ -20,6 +20,15 @@ namespace sprzedazBiletow.Models
             return loginResponse;
         }
 
+        public bool SendBuyRequest(String train, String user)
+        {
+            string message = train + "," + user;
+            Task<string> t = InvokeAsync(message, QueueName.buyQueue);
+            t.Wait();
+            bool result = ParseBuyResponse(t.Result);
+            return result;
+        }
+
         public UserDataResponse SendRegisterRequest(RegisterRequest registerRequest)
         {
             string message = registerRequest.Login + "," +
@@ -49,6 +58,7 @@ namespace sprzedazBiletow.Models
             return searchResponse;
         }
 
+
         private static async Task<string> InvokeAsync(string message, QueueName queueName)
         {
             var rnd = new Random(Guid.NewGuid().GetHashCode());
@@ -71,6 +81,12 @@ namespace sprzedazBiletow.Models
                 resultSplit[3],
                 resultSplit[4],
                 resultSplit[5]);
+        }
+
+        private static bool ParseBuyResponse(string result)
+        {
+            string[] resultSplit = result.Split(',');
+            return bool.Parse(resultSplit[0]);
         }
 
         private List<SearchResponse> ParseSearchResponse(string result)
