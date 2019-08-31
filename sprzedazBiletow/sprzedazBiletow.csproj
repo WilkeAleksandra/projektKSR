@@ -160,6 +160,7 @@
     <Compile Include="Models\DataProvider\Cities.cs" />
     <Compile Include="Models\DataProvider\City.cs" />
     <Compile Include="Models\Connection\QueueNameEnum.cs" />
+    <Compile Include="Models\Requests\BuyRequest.cs" />
     <Compile Include="Models\Requests\RegisterRequest.cs" />
     <Compile Include="Models\Connection\Rpc.cs" />
     <Compile Include="Models\Responses\SearchResponse.cs" />
@@ -292,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\obj\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>

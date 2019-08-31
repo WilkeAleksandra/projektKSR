@@ -25,7 +25,7 @@ namespace sprzedazBiletow.Controllers
             string train = form["checkTrain"].ToString();
             Rpc rpc = new Rpc();
             SerachResponseView searchList = new SerachResponseView();
-            bool searchResponse = rpc.SendBuyRequest(train, Session["userID"].ToString());
+            bool searchResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString());
 
             return View();
         }
@@ -55,6 +55,8 @@ namespace sprzedazBiletow.Controllers
         [HttpPost]
         public ActionResult Wyszukaj(SearchRequest searchModel)
         {
+            Session["from"] = searchModel.startStation;
+            Session["to"] = searchModel.endStation;
             Rpc rpc = new Rpc();
             SerachResponseView searchList = new SerachResponseView();
             List<SearchResponse> searchResponse = rpc.SendSearchRequest(searchModel);

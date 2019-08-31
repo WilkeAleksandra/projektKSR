@@ -11,7 +11,7 @@ namespace sprzedazBiletow.Models
 
         public UserDataResponse SendLoginRequest(LoginRequest loginRequest)
         {
-            string message = loginRequest.Login + "," + loginRequest.Password;
+            string message = loginRequest.Login + "?" + loginRequest.Password;
             Task<string> t = InvokeAsync(message, QueueName.loginQueue);
             t.Wait();
 
@@ -20,9 +20,9 @@ namespace sprzedazBiletow.Models
             return loginResponse;
         }
 
-        public bool SendBuyRequest(String train, String user)
+        public bool SendBuyRequest(string train, string user, string from, string to)
         {
-            string message = train + "," + user;
+            string message = train + "?" + user + "?" + from + "?" + to;
             Task<string> t = InvokeAsync(message, QueueName.buyQueue);
             t.Wait();
             bool result = ParseBuyResponse(t.Result);
@@ -31,10 +31,10 @@ namespace sprzedazBiletow.Models
 
         public UserDataResponse SendRegisterRequest(RegisterRequest registerRequest)
         {
-            string message = registerRequest.Login + "," +
-                registerRequest.Password + "," +
-                registerRequest.FirstName + "," +
-                registerRequest.LastName + "," +
+            string message = registerRequest.Login + "?" +
+                registerRequest.Password + "?" +
+                registerRequest.FirstName + "?" +
+                registerRequest.LastName + "?" +
                 registerRequest.Email;
             Task<string> t = InvokeAsync(message, QueueName.registerQueue);
             t.Wait();
@@ -46,8 +46,8 @@ namespace sprzedazBiletow.Models
 
         public List<SearchResponse> SendSearchRequest(SearchRequest searchRequest)
         {
-            string message = searchRequest.date.ToString() + "," +
-                Cities.list[Convert.ToInt32(searchRequest.startStation)-1].Name + "," +
+            string message = searchRequest.date.ToString() + "?" +
+                Cities.list[Convert.ToInt32(searchRequest.startStation)-1].Name + "?" +
                 Cities.list[Convert.ToInt32(searchRequest.endStation)-1].Name;
             //+ "," + searchRequest.hour
             Task<string> t = InvokeAsync(message, QueueName.searchQueue);
@@ -73,7 +73,7 @@ namespace sprzedazBiletow.Models
 
         private static UserDataResponse ParseUserDataResponse(string result)
         {
-            string[] resultSplit = result.Split(',');
+            string[] resultSplit = result.Split('?');
             return new UserDataResponse(
                 bool.Parse(resultSplit[0]),
                 int.Parse(resultSplit[1]),
@@ -85,7 +85,7 @@ namespace sprzedazBiletow.Models
 
         private static bool ParseBuyResponse(string result)
         {
-            string[] resultSplit = result.Split(',');
+            string[] resultSplit = result.Split('?');
             return bool.Parse(resultSplit[0]);
         }
 
@@ -96,7 +96,7 @@ namespace sprzedazBiletow.Models
             string[] splitToSearchResponseList = result.Split(';');
             foreach(string searchResponse in splitToSearchResponseList)
             {
-                string[] splitToSearchResponse = searchResponse.Split(',');
+                string[] splitToSearchResponse = searchResponse.Split('?');
                 resultList.Add(new SearchResponse(
                     splitToSearchResponse[0],
                     splitToSearchResponse[1],
