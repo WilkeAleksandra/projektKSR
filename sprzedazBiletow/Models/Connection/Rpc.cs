@@ -20,9 +20,13 @@ namespace sprzedazBiletow.Models
             return loginResponse;
         }
 
-        public bool SendBuyRequest(string train, string user, string from, string to)
+        // trainId odnosi sie do routeId
+        public bool SendBuyRequest(string trainId, string userId, string from, string to)
         {
-            string message = train + "?" + user + "?" + from + "?" + to;
+            string message = trainId + "?"
+                + userId + "?"
+                + Cities.list[Convert.ToInt32(from) - 1].Name + "?"
+                + Cities.list[Convert.ToInt32(to) - 1].Name;
             Task<string> t = InvokeAsync(message, QueueName.buyQueue);
             t.Wait();
             bool result = ParseBuyResponse(t.Result);
