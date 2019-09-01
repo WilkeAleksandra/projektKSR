@@ -1,9 +1,0 @@
-1.Możliwe że trzeba doinstalować npgsql żeby działało
-	a) Wcf udostępnia jedną funkcję umożliwiającą pobranie danych użytkownika na podstawie podanego loginu - potrzebne do logowania
-	b) funkcja korzysta z dllki z podstawowymi funkcjami dostępu do bazy: databaseConnectionApi 
-	(zostało skompilowanie w wersji debug w razie problemów wrzuce całą impelemntacje dll)
-
-2.Testowanie wcf: 
-WcfTestClient.exe, podać login który znajduje się w rekordzie w bazie 
-
-3.Nie ma obsługi nulli, jeśli żaden rekord nie zostanie znaleziony wyskoczy wyjątek

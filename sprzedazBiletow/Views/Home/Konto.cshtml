@@ -1,12 +1,24 @@
-﻿<br />
+﻿@model sprzedazBiletow.Models.Responses.BuyResponse
+@{
+    ViewBag.Title = "Account Page";
+}
+<br />
 <h1>TWOJE KONTO</h1>
 <br /><br />
 
-<input type="button" value="ZMIEŃ DANE" />
+@*<input type="button" value="ZMIEŃ DANE" />*@
+<a href="@Url.Action("Logout","Home")">WYLOGUJ</a>
 
 <br /><br />
 <div>
-    <h5> IMIĘ I NAZWISKO: </h5>
-    <h5> RODZAJ ULGI: </h5>
-    <h5> LISTA ZAKUPIONYCH BILETÓW: </h5>
+    <h5> IMIĘ I NAZWISKO: <span>@Session["userName"].ToString()</span><span> @Session["userLastName"].ToString()</span>  </h5>
+    <h5> ADRES EMAIL: <span>@Session["userEmail"].ToString()</span></h5>
+    </br>
+
+    @if (Model != null)
+    {
+        <p><font color="red">@Model.resultText</font></p>
+    }
+
+    <h5> ZAKUPIONE BILETY: </h5>
 </div>

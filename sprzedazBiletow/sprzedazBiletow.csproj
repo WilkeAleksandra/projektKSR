@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -77,6 +78,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RabbitMQ.Client, Version=6.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.6.0.0-pre3\lib\net451\RabbitMQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -152,6 +157,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider\Cities.cs" />
+    <Compile Include="Models\DataProvider\City.cs" />
+    <Compile Include="Models\Connection\QueueNameEnum.cs" />
+    <Compile Include="Models\Requests\BuyRequest.cs" />
+    <Compile Include="Models\Requests\RegisterRequest.cs" />
+    <Compile Include="Models\Connection\Rpc.cs" />
+    <Compile Include="Models\Responses\BuyResponse.cs" />
+    <Compile Include="Models\Responses\SearchResponse.cs" />
+    <Compile Include="Models\Requests\SearchRequest.cs" />
+    <Compile Include="Models\Responses\UserDataResponse.cs" />
+    <Compile Include="Models\Connection\RabbitMQ.cs" />
+    <Compile Include="Models\Requests\LoginRequest.cs" />
+    <Compile Include="Models\SerachResponseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -271,10 +289,13 @@
     <Content Include="Views\Home\Wyszukaj.cshtml" />
     <Content Include="Views\Home\Konto.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Zakladanie.cshtml" />
+    <Content Include="Views\Home\ZnalezionePolaczenia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Scripts\obj\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

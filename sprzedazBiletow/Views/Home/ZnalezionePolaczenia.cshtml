@@ -1,0 +1,77 @@
+﻿@model sprzedazBiletow.Models.SerachResponseView
+
+@{
+    ViewBag.Title = "ZnalezionePolaczenia";
+}
+
+<h2>Znalezione Połączenia</h2>
+
+@using (Html.BeginForm("ZnalezionePolaczenia", "Home", FormMethod.Post))
+{
+    <form id="form" method="post" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <th>
+                    Pociąg:&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                    Data:&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                    Godzina:&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                    Cena:&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th>
+                    Czas:&nbsp;&nbsp;&nbsp;&nbsp;
+                </th>
+                <th></th>
+            </tr>
+
+            @if (Model != null && Model.list.Count > 0)
+            {
+
+                foreach (var item in Model.list)
+                {
+                    <tr>
+                        <td>
+                            @item.TrainName &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            @item.DepartureDate &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            @item.DepartureHour &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            @item.Price &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            @item.Time &nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            @Html.RadioButton("checkTrain", @item.TrainId)
+                            @*<input type="radio" name="checkTrain" value="@item.TrainName" text="" />*@
+                        </td>
+                    </tr>
+                }
+            }
+
+       @if (Session["userID"] == null)
+       {
+           <tr>
+                <td>
+                    <font color="red">Zaloguj się, aby móc dokonać zakupu.</font>
+                </td>
+           </tr>
+       }
+
+        </table>
+
+        @if (Model != null && Model.list.Count > 0 && Session["userID"] != null)
+        {
+            <input type="submit" value="KUP">
+        }
+    </form>
+}

@@ -1,3 +1,109 @@
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\ApplicationInsights.config
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\csc.exe
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\System.Collections.Immutable.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\System.Reflection.Metadata.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\vbc.exe
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\VBCSCompiler.exe
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\roslyn\VBCSCompiler.exe.config
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\sprzedazBiletow.dll.config
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\sprzedazBiletow.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\sprzedazBiletow.pdb
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Antlr3.Runtime.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.Agent.Intercept.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.DependencyCollector.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.Web.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.WindowsServer.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.ApplicationInsights.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.Web.Infrastructure.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Newtonsoft.Json.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Helpers.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Mvc.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Optimization.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Razor.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.Deployment.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.Razor.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\WebGrease.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.DependencyCollector.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.Web.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.AI.WindowsServer.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.ApplicationInsights.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Helpers.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Mvc.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Optimization.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.Razor.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.Deployment.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\System.Web.WebPages.Razor.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Antlr3.Runtime.pdb
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\bin\Newtonsoft.Json.xml
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojResolveAssemblyReference.cache
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\obj\Debug\sprzedazBiletow.dll
+D:\STUDIA\VI semestr\sprzedazBiletow\sprzedazBiletow\obj\Debug\sprzedazBiletow.pdb
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\ApplicationInsights.config
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\csc.exe
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\System.Collections.Immutable.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\System.Reflection.Metadata.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\vbc.exe
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\VBCSCompiler.exe
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\roslyn\VBCSCompiler.exe.config
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\sprzedazBiletow.dll.config
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\sprzedazBiletow.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\sprzedazBiletow.pdb
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Antlr3.Runtime.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.Agent.Intercept.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.DependencyCollector.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.Web.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.WindowsServer.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.ApplicationInsights.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.Web.Infrastructure.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Helpers.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Mvc.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Optimization.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Razor.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Deployment.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Razor.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\WebGrease.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.DependencyCollector.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.Web.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.AI.WindowsServer.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.ApplicationInsights.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Helpers.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Mvc.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Optimization.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.Razor.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Deployment.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Razor.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Antlr3.Runtime.pdb
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.xml
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojResolveAssemblyReference.cache
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.dll
+D:\STUDIA\sprzedazBiletow\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.pdb
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\ApplicationInsights.config
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\roslyn\csc.exe
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -25,7 +131,6 @@ D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.ApplicationInsights.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.Web.Infrastructure.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.dll
-D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\RabbitMQ.Client.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Helpers.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Mvc.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Optimization.dll
@@ -40,7 +145,6 @@ D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.AI.Web.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.AI.WindowsServer.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.ApplicationInsights.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\RabbitMQ.Client.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Helpers.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Mvc.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\System.Web.Optimization.xml
@@ -53,6 +157,8 @@ D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.xml
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojResolveAssemblyReference.cache
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.dll
 D:\STUDIA\KSR\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.pdb
+D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\RabbitMQ.Client.dll
+D:\STUDIA\KSR\projektKSR\sprzedazBiletow\bin\RabbitMQ.Client.xml
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\ApplicationInsights.config
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\roslyn\csc.exe
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -105,8 +211,8 @@ E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\System.Web.WebPages.Razor.xml
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\Antlr3.Runtime.pdb
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\bin\Newtonsoft.Json.xml
-E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojAssemblyReference.cache
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csproj.CoreCompileInputs.cache
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csproj.CopyComplete
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.dll
 E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.pdb
+E:\semestr6\ksr\ProjektWakacyjny\ProjectOfficial\projektKSR\sprzedazBiletow\obj\Debug\sprzedazBiletow.csprojAssemblyReference.cache
