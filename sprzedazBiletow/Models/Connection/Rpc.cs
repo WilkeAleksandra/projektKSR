@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sprzedazBiletow.Models.Responses;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,19 +19,6 @@ namespace sprzedazBiletow.Models
             UserDataResponse loginResponse = ParseUserDataResponse(t.Result);
 
             return loginResponse;
-        }
-
-        // trainId odnosi sie do routeId
-        public bool SendBuyRequest(string trainId, string userId, string from, string to)
-        {
-            string message = trainId + "?"
-                + userId + "?"
-                + Cities.list[Convert.ToInt32(from) - 1].Name + "?"
-                + Cities.list[Convert.ToInt32(to) - 1].Name;
-            Task<string> t = InvokeAsync(message, QueueName.buyQueue);
-            t.Wait();
-            bool result = ParseBuyResponse(t.Result);
-            return result;
         }
 
         public UserDataResponse SendRegisterRequest(RegisterRequest registerRequest)
@@ -53,13 +41,39 @@ namespace sprzedazBiletow.Models
             string message = searchRequest.date.ToString() + "?" +
                 Cities.list[Convert.ToInt32(searchRequest.startStation)-1].Name + "?" +
                 Cities.list[Convert.ToInt32(searchRequest.endStation)-1].Name;
-            //+ "," + searchRequest.hour
+
             Task<string> t = InvokeAsync(message, QueueName.searchQueue);
             t.Wait();
 
             List<SearchResponse> searchResponse = ParseSearchResponse(t.Result);
 
             return searchResponse;
+        }
+
+        // trainId odnosi sie do routeId
+        public bool SendBuyRequest(string trainId, string userId, string from, string to)
+        {
+            string message = trainId + "?"
+                + userId + "?"
+                + Cities.list[Convert.ToInt32(from) - 1].Name + "?"
+                + Cities.list[Convert.ToInt32(to) - 1].Name;
+
+            Task<string> t = InvokeAsync(message, QueueName.buyQueue);
+            t.Wait();
+
+            bool result = ParseBuyResponse(t.Result);
+            return result;
+        }
+
+        public List<TicketResponse> SendTicketRequest(string userId)
+        {
+            string message = userId;
+            Task<string> t = InvokeAsync(message, QueueName.ticketsQueue);
+            t.Wait();
+
+            List<TicketResponse> ticketResponse = ParseTicketResponse(t.Result);
+
+            return ticketResponse;
         }
 
 
@@ -87,12 +101,6 @@ namespace sprzedazBiletow.Models
                 resultSplit[5]);
         }
 
-        private static bool ParseBuyResponse(string result)
-        {
-            string[] resultSplit = result.Split('?');
-            return bool.Parse(resultSplit[0]);
-        }
-
         private List<SearchResponse> ParseSearchResponse(string result)
         {
             List<SearchResponse> resultList = new List<SearchResponse>();
@@ -108,6 +116,35 @@ namespace sprzedazBiletow.Models
                     splitToSearchResponse[3],
                     splitToSearchResponse[4],
                     splitToSearchResponse[5]));
+            }
+            return resultList;
+        }
+
+        private static bool ParseBuyResponse(string result)
+        {
+            string[] resultSplit = result.Split('?');
+            return bool.Parse(resultSplit[0]);
+        }
+
+
+        private static List<TicketResponse> ParseTicketResponse(string result)
+        {
+            List<TicketResponse> resultList = new List<TicketResponse>();
+
+            string[] splitToSearchResponseList = result.Split(';');
+            foreach (string searchResponse in splitToSearchResponseList)
+            {
+                string[] splitToSearchResponse = searchResponse.Split('?');
+                resultList.Add(new TicketResponse(
+                    splitToSearchResponse[0],
+                    splitToSearchResponse[1],
+                    splitToSearchResponse[2],
+                    splitToSearchResponse[3],
+                    splitToSearchResponse[4],
+                    splitToSearchResponse[5],
+                    splitToSearchResponse[6],
+                    splitToSearchResponse[7],
+                    (Convert.ToBoolean(splitToSearchResponse[8])) ? "opłacone" : "niepłacone" ));
             }
             return resultList;
         }

@@ -9,18 +9,31 @@ namespace sprzedazBiletow.Controllers
     {
         public Cities Cities = new Cities();
 
+        [HttpGet]
         public ActionResult Konto()
         {
+            if (Session["userID"] != null)
+            {
+                string userId = Session["userID"].ToString();
+                if (userId != null)
+                {
+                    Rpc rpc = new Rpc();
+                    TicketResponseView ticketResponseView = new TicketResponseView();
+                    ticketResponseView.list = rpc.SendTicketRequest(userId);
+
+                    return View(ticketResponseView);
+                }
+            }
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Konto(BuyResponse response)
-        {
-            return View(response);
-        }
+        //[HttpPost]
+        //public ActionResult Konto()
+        //{
+        //    return View();
+        //}
 
-        [HttpGet]
+
         public ActionResult ZnalezionePolaczenia(SerachResponseView searchModel)
         {
             return View(searchModel);
@@ -46,7 +59,7 @@ namespace sprzedazBiletow.Controllers
         public ActionResult Wyszukaj()
         {
             List<SelectListItem> listSelectListItem = new List<SelectListItem>();
-            
+
             foreach (City city in Cities.list)
             {
                 SelectListItem selectListItem = new SelectListItem()

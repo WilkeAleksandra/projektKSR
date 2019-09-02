@@ -166,10 +166,12 @@
     <Compile Include="Models\Responses\BuyResponse.cs" />
     <Compile Include="Models\Responses\SearchResponse.cs" />
     <Compile Include="Models\Requests\SearchRequest.cs" />
+    <Compile Include="Models\Responses\TicketResponse.cs" />
     <Compile Include="Models\Responses\UserDataResponse.cs" />
     <Compile Include="Models\Connection\RabbitMQ.cs" />
     <Compile Include="Models\Requests\LoginRequest.cs" />
     <Compile Include="Models\SerachResponseView.cs" />
+    <Compile Include="Models\TicketResponseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,8 @@
-﻿@model sprzedazBiletow.Models.Responses.BuyResponse
+﻿@model sprzedazBiletow.Models.TicketResponseView
 @{
     ViewBag.Title = "Account Page";
 }
+
 <br />
 <h1>TWOJE KONTO</h1>
 <br /><br />
@@ -11,14 +12,80 @@
 
 <br /><br />
 <div>
-    <h5> IMIĘ I NAZWISKO: <span>@Session["userName"].ToString()</span><span> @Session["userLastName"].ToString()</span>  </h5>
-    <h5> ADRES EMAIL: <span>@Session["userEmail"].ToString()</span></h5>
-    </br>
-
-    @if (Model != null)
+    @if (@Session["userName"] != null)
     {
-        <p><font color="red">@Model.resultText</font></p>
+        <h5> IMIĘ I NAZWISKO: <span>@Session["userName"].ToString()</span><span> @Session["userLastName"].ToString()</span>  </h5>
+        <h5> ADRES EMAIL: <span>@Session["userEmail"].ToString()</span></h5>
     }
 
+    </br>
+
     <h5> ZAKUPIONE BILETY: </h5>
+    @if (Model != null && Model.list.Count > 0)
+    {
+        <table style="margin: 10px">
+            <tr style="margin: 5px">
+                <th>
+                    Pociąg:
+                </th>
+                <th>
+                    Ze stacji:
+                </th>
+                <th>
+                    Do stacji:
+                </th>
+                <th>
+                    Data zakupu:
+                </th>
+                <th>
+                    Data odjazdu:
+                </th>
+                <th>
+                    Godzina odjazdu:
+                </th>
+                <th>
+                    Cena:
+                </th>
+                <th>
+                    Czas:
+                </th>
+                <th>
+                    Status:
+                </th>
+            </tr>
+
+            @foreach (var item in Model.list)
+            {
+                <tr style="margin: 5px">
+                    <td>
+                        @item.TrainName
+                    </td>
+                    <td>
+                        @item.FromStation
+                    </td>
+                    <td>
+                        @item.ToStation
+                    </td>
+                    <td>
+                        @item.SaleDate
+                    </td>
+                    <td>
+                        @item.DepartureDate
+                    </td>
+                    <td>
+                        @item.DepartureHour
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>
+                        @item.Time
+                    </td>
+                    <td>
+                        @item.PaymentStatus
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 </div>

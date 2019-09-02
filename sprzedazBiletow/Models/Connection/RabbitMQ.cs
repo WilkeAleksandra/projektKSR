@@ -20,8 +20,9 @@ namespace sprzedazBiletow.Models
         private readonly Dictionary<QueueName, string> Queues = new Dictionary<QueueName, string>(){
                                                 {QueueName.loginQueue,"loginQueue"},
                                                 {QueueName.registerQueue, "registerQueue"},
-                                                {QueueName.searchQueue, "searchQueue" },
-                                                {QueueName.buyQueue, "buyQueue" }
+                                                {QueueName.searchQueue, "searchQueue"},
+                                                {QueueName.buyQueue, "buyQueue"},
+                                                {QueueName.ticketsQueue, "ticketsQueue"}
                                             };
 
         public RabbitMQ()

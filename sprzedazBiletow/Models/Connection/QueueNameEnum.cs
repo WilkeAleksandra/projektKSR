@@ -1,5 +1,5 @@
 ﻿
 namespace sprzedazBiletow.Models
 {
-    public enum QueueName { loginQueue, registerQueue, searchQueue, buyQueue }
+    public enum QueueName { loginQueue, registerQueue, searchQueue, buyQueue, ticketsQueue }
 }
