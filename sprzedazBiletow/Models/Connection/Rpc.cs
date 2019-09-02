@@ -135,6 +135,8 @@ namespace sprzedazBiletow.Models
             foreach (string searchResponse in splitToSearchResponseList)
             {
                 string[] splitToSearchResponse = searchResponse.Split('?');
+                if (splitToSearchResponse[8] == " ")
+                    return resultList;
                 resultList.Add(new TicketResponse(
                     splitToSearchResponse[0],
                     splitToSearchResponse[1],

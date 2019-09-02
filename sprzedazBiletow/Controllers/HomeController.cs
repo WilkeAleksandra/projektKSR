@@ -52,7 +52,7 @@ namespace sprzedazBiletow.Controllers
             else
                 response.resultText = "Nie udało się zrealizować żądania zakupu";
 
-            return View("Konto", response);
+            return View("Konto");
         }
 
         [HttpGet]
