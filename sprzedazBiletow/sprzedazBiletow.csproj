@@ -160,6 +160,8 @@
     <Compile Include="Models\DataProvider\Cities.cs" />
     <Compile Include="Models\DataProvider\City.cs" />
     <Compile Include="Models\Connection\QueueNameEnum.cs" />
+    <Compile Include="Models\DataProvider\Ticket.cs" />
+    <Compile Include="Models\DataProvider\Tickets.cs" />
     <Compile Include="Models\Requests\BuyRequest.cs" />
     <Compile Include="Models\Requests\RegisterRequest.cs" />
     <Compile Include="Models\Connection\Rpc.cs" />

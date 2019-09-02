@@ -1,4 +1,5 @@
 ﻿using sprzedazBiletow.Models;
+using sprzedazBiletow.Models.DataProvider;
 using sprzedazBiletow.Models.Responses;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ namespace sprzedazBiletow.Controllers
     public class HomeController : Controller
     {
         public Cities Cities = new Cities();
+        public Tickets Tickets = new Tickets();
 
         [HttpGet]
         public ActionResult Konto()
@@ -33,7 +35,6 @@ namespace sprzedazBiletow.Controllers
         //    return View();
         //}
 
-
         public ActionResult ZnalezionePolaczenia(SerachResponseView searchModel)
         {
             return View(searchModel);
@@ -44,8 +45,10 @@ namespace sprzedazBiletow.Controllers
         {
             BuyResponse response = new BuyResponse();
             string train = form["checkTrain"].ToString();
+            int amount = int.Parse(form["ILOSC"]);
+            string ticket = form["ticket"].ToString();
             Rpc rpc = new Rpc();
-            bool buyResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString());
+            bool buyResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString(), amount, ticket);
 
             if (buyResponse)
                 response.resultText = "Zakup został dokonany pomyślnie.";
@@ -84,6 +87,22 @@ namespace sprzedazBiletow.Controllers
             Session["to"] = searchModel.endStation;
             Rpc rpc = new Rpc();
             SerachResponseView searchList = new SerachResponseView();
+
+            List<SelectListItem> listSelectListItem = new List<SelectListItem>();
+
+            foreach (Ticket ticket in Tickets.list)
+            {
+                SelectListItem selectListItem = new SelectListItem()
+                {
+                    Text = ticket.Name,
+                    Value = ticket.Id.ToString(),
+                    Selected = ticket.isSelected
+                };
+                listSelectListItem.Add(selectListItem);
+            }
+
+            searchList.tickets = listSelectListItem;
+
             List<SearchResponse> searchResponse = rpc.SendSearchRequest(searchModel);
             searchList.list = searchResponse;
 

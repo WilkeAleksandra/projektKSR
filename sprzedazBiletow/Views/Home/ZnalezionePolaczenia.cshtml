@@ -52,10 +52,27 @@
                         </td>
                         <td>
                             @Html.RadioButton("checkTrain", @item.TrainId)
-                            @*<input type="radio" name="checkTrain" value="@item.TrainName" text="" />*@
                         </td>
                     </tr>
                 }
+                <br/>
+                <tr>
+                    <td>
+                        ILOŚĆ BILETÓW:
+                    </td>
+                    <td>
+                        @Html.TextArea("ILOSC", null, new { @class = "form-control" })
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td>
+                        RODZAJ BILETU:
+                    </td>
+                    <td>
+                         @Html.ListBox("ticket",Model.tickets, new { @class = "form-control"})
+                    </td>
+                </tr>
             }
 
        @if (Session["userID"] == null)

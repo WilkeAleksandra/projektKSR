@@ -1,4 +1,5 @@
-﻿using sprzedazBiletow.Models.Responses;
+﻿using sprzedazBiletow.Models.DataProvider;
+using sprzedazBiletow.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace sprzedazBiletow.Models
     public class Rpc
     {
         public Cities Cities = new Cities();
+        public Tickets Tickets = new Tickets();
 
         public UserDataResponse SendLoginRequest(LoginRequest loginRequest)
         {
@@ -51,12 +53,14 @@ namespace sprzedazBiletow.Models
         }
 
         // trainId odnosi sie do routeId
-        public bool SendBuyRequest(string trainId, string userId, string from, string to)
+        public bool SendBuyRequest(string trainId, string userId, string from, string to, int amount, string ticket)
         {
             string message = trainId + "?"
                 + userId + "?"
                 + Cities.list[Convert.ToInt32(from) - 1].Name + "?"
-                + Cities.list[Convert.ToInt32(to) - 1].Name;
+                + Cities.list[Convert.ToInt32(to) - 1].Name + "?"
+                + amount + "?"
+                + Tickets.list[Convert.ToInt32(ticket) - 1].Name;
 
             Task<string> t = InvokeAsync(message, QueueName.buyQueue);
             t.Wait();
