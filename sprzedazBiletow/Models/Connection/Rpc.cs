@@ -1,4 +1,5 @@
 ﻿using sprzedazBiletow.Models.DataProvider;
+using sprzedazBiletow.Models.Requests;
 using sprzedazBiletow.Models.Responses;
 using System;
 using System.Collections.Generic;
@@ -53,14 +54,14 @@ namespace sprzedazBiletow.Models
         }
 
         // trainId odnosi sie do routeId
-        public bool SendBuyRequest(string trainId, string userId, string from, string to, int amount, string ticket)
+        public bool SendBuyRequest(BuyRequest buyRequest)
         {
-            string message = trainId + "?"
-                + userId + "?"
-                + Cities.list[Convert.ToInt32(from) - 1].Name + "?"
-                + Cities.list[Convert.ToInt32(to) - 1].Name + "?"
-                + amount + "?"
-                + Tickets.list[Convert.ToInt32(ticket) - 1].Name;
+            string message = buyRequest.TravelId + "?"
+                + buyRequest.UserId + "?"
+                + Cities.list[Convert.ToInt32(buyRequest.FromStation) - 1].Name + "?"
+                + Cities.list[Convert.ToInt32(buyRequest.ToStation) - 1].Name + "?"
+                + buyRequest.Amount + "?"
+                + Tickets.list[Convert.ToInt32(buyRequest.TicketType) - 1].Name;
 
             Task<string> t = InvokeAsync(message, QueueName.buyQueue);
             t.Wait();

@@ -1,5 +1,6 @@
 ﻿using sprzedazBiletow.Models;
 using sprzedazBiletow.Models.DataProvider;
+using sprzedazBiletow.Models.Requests;
 using sprzedazBiletow.Models.Responses;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -29,12 +30,6 @@ namespace sprzedazBiletow.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult Konto()
-        //{
-        //    return View();
-        //}
-
         public ActionResult ZnalezionePolaczenia(SerachResponseView searchModel)
         {
             return View(searchModel);
@@ -46,14 +41,20 @@ namespace sprzedazBiletow.Controllers
             BuyResponse response = new BuyResponse();
             string train = form["checkTrain"].ToString();
             int amount = int.Parse(form["ILOSC"]);
-            string ticket = form["ticket"].ToString();
+            string ticket_type = form["ticket"].ToString();
             Rpc rpc = new Rpc();
-            bool buyResponse = rpc.SendBuyRequest(train, Session["userID"].ToString(), Session["from"].ToString(), Session["to"].ToString(), amount, ticket);
 
-            if (buyResponse)
-                response.resultText = "Zakup został dokonany pomyślnie.";
-            else
-                response.resultText = "Nie udało się zrealizować żądania zakupu";
+            BuyRequest buyRequest = new BuyRequest()
+            {
+                TravelId = train,
+                UserId = Session["userID"].ToString(),
+                FromStation = Session["from"].ToString(),
+                ToStation = Session["to"].ToString(),
+                Amount = amount.ToString(),
+                TicketType = ticket_type
+            };
+
+            bool buyResponse = rpc.SendBuyRequest(buyRequest);
 
             return RedirectToAction("konto");
         }
