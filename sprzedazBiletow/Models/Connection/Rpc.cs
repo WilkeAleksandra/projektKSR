@@ -151,7 +151,9 @@ namespace sprzedazBiletow.Models
                     splitToSearchResponse[5],
                     splitToSearchResponse[6],
                     splitToSearchResponse[7],
-                    (Convert.ToBoolean(splitToSearchResponse[8])) ? "opłacone" : "niepłacone" ));
+                    (Convert.ToBoolean(splitToSearchResponse[8])) ? "opłacone" : "niepłacone",
+                    splitToSearchResponse[9],
+                    splitToSearchResponse[10]));
             }
             return resultList;
         }

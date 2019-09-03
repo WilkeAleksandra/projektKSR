@@ -15,9 +15,11 @@ namespace sprzedazBiletow.Models.Responses
             this.Price = "aaa";
             this.Time = "aaa";
             this.PaymentStatus = "aaa";
+            this.TicketName = "aaa";
+            this.TicketsAmount = "aaa";
         }
         public TicketResponse(string TrainName, string FromStation, string ToStation, string SaleDate, string DepartureDate,
-            string DepartureHour, string Price, string Time, string PaymentStatus)
+            string DepartureHour, string Price, string Time, string PaymentStatus, string TicketName, string TicketsAmount)
         {
             this.TrainName = TrainName;
             this.FromStation = FromStation;
@@ -28,6 +30,8 @@ namespace sprzedazBiletow.Models.Responses
             this.Price = Price;
             this.Time = Time;
             this.PaymentStatus = PaymentStatus;
+            this.TicketName = TicketName;
+            this.TicketsAmount = TicketsAmount;
         }
 
         [DisplayName("Pociąg: ")]
@@ -56,5 +60,11 @@ namespace sprzedazBiletow.Models.Responses
 
         [DisplayName("Status: ")]
         public string PaymentStatus { get; set; }
+
+        [DisplayName("Bilet: ")]
+        public string TicketName { get; set; }
+
+        [DisplayName("Liczba Biletów: ")]
+        public string TicketsAmount { get; set; }
     }
 }

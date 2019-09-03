@@ -33,68 +33,80 @@
     <h5> ZAKUPIONE BILETY: </h5>
     @if (Model != null && Model.list.Count > 0)
     {
-        <table border="1|0">
+        <table border="1">
             <tr>
                 <th>
-                    Pociąg:
+                    Pociąg
                 </th>
                 <th>
-                    Ze stacji:
+                    Ze stacji
                 </th>
                 <th>
-                    Do stacji:
+                    Do stacji
                 </th>
                 <th>
-                    Data zakupu:
+                    Data zakupu
                 </th>
                 <th>
-                    Data odjazdu:
+                    Data odjazdu
                 </th>
                 <th>
-                    Godzina odjazdu:
+                    Godzina odjazdu
                 </th>
                 <th>
-                    Cena:
+                    Cena
                 </th>
                 <th>
-                    Czas:
+                    Czas
                 </th>
                 <th>
-                    Status:
+                    Status
+                </th>
+                <th>
+                    Bilet
+                </th>
+                <th>
+                    Ilość biletów
                 </th>
             </tr>
 
             @foreach (var item in Model.list)
             {
-                <tr>
-                    <td>
-                        @item.TrainName
-                    </td>
-                    <td>
-                        @item.FromStation
-                    </td>
-                    <td>
-                        @item.ToStation
-                    </td>
-                    <td>
-                        @item.SaleDate
-                    </td>
-                    <td>
-                        @item.DepartureDate
-                    </td>
-                    <td>
-                        @item.DepartureHour
-                    </td>
-                    <td>
-                        @item.Price
-                    </td>
-                    <td>
-                        @item.Time
-                    </td>
-                    <td>
-                        @item.PaymentStatus
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @item.TrainName
+                </td>
+                <td>
+                    @item.FromStation
+                </td>
+                <td>
+                    @item.ToStation
+                </td>
+                <td>
+                    @item.SaleDate
+                </td>
+                <td>
+                    @item.DepartureDate
+                </td>
+                <td>
+                    @item.DepartureHour
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Time
+                </td>
+                <td>
+                    @item.PaymentStatus
+                </td>
+                <td>
+                    @item.TicketName
+                </td>
+                <td>
+                    @item.TicketsAmount
+                </td>
+            </tr>
             }
         </table>
     }
